@@ -138,6 +138,10 @@ static float cachedDevicePixelsPerInch;
 	sysctlbyname("hw.machine", machine, &size, NULL, 0);
 	NSString *platform = [NSString stringWithUTF8String:machine];
 	free(machine);
+
+    if( [platform hasPrefix:@"iPhone10,3"]) {
+        return 458.0f;
+    }
 	
 	if( [platform hasPrefix:@"iPhone1"]
 	|| [platform hasPrefix:@"iPhone2"]
